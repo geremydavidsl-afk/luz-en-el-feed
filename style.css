@@ -1,36 +1,23 @@
 /* ==========================================================================
-   LUZ EN EL FEED - Cuaderno Digital de Trabajo
-   Diseño fiel a las láminas de la presentación:
-   - Banners azul marino (#1E2B45) con números amarillos (#F59E0B)
-   - Tarjetas celestes (#EFF6FF), versículos en crema/oro (#FEF9C3)
-   - Títulos en verde azulado (#0D9488)
-   - Tarjetas de notas con renglones de cuaderno (borde #0D9488)
-   - Cero animaciones y cero transiciones.
+   LUZ EN EL FEED - Cuaderno digital
+   Estilo ordenado inspirado en las láminas (banner azul marino, tarjetas
+   celestes, idea clave crema, notas con renglones). Sin animaciones.
    ========================================================================== */
 
 :root {
-  --bg-page: #F8FAFC;
-  --bg-card: #FFFFFF;
-  --navy-dark: #1E2B45;
-  --navy-darker: #131C2E;
-  --accent-gold: #F59E0B;
-  --accent-gold-dark: #D97706;
-  --accent-gold-light: #FEF3C7;
-  --accent-cream: #FEF9C3;
-  --teal-title: #0D9488;
-  --blue-card-bg: #EFF6FF;
-  --text-main: #1E293B;
-  --text-muted: #475569;
-  --text-light: #64748B;
-  --border-light: #E2E8F0;
-  --border-underline: #94A3B8;
-  --radius-card: 12px;
-  --radius-inner: 8px;
-  --max-content-width: 780px;
-  --font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --navy: #1B2A47;
+  --gold: #F5B83D;
+  --gold-dark: #B7791F;
+  --cream: #FEF5DC;
+  --blue: #E8F0FA;
+  --teal: #1A8C87;
+  --text: #1F2937;
+  --muted: #6B7280;
+  --line: #C9D2DE;
+  --bg: #F9FAFB;
+  --radius: 14px;
 }
 
-/* Cero animaciones y transiciones por requerimiento explícito */
 *,
 *::before,
 *::after {
@@ -41,863 +28,573 @@
   animation: none !important;
 }
 
-html {
-  font-size: 16px;
-  scroll-behavior: auto;
-  -webkit-text-size-adjust: 100%;
-}
-
 body {
-  font-family: var(--font-family);
-  background-color: var(--bg-page);
-  color: var(--text-main);
-  line-height: 1.55;
-  min-height: 100vh;
-  padding: 20px 14px 48px;
-  display: flex;
-  justify-content: center;
+  font-family: 'Lato', 'Segoe UI', Roboto, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  font-size: 16px;
+  line-height: 1.5;
+  padding: 24px 14px 40px;
 }
 
-.main-container {
-  width: 100%;
-  max-width: var(--max-content-width);
+.page {
+  max-width: 760px;
+  margin: 0 auto;
   display: flex;
   flex-direction: column;
-  gap: 20px;
-  position: relative;
+  gap: 18px;
 }
 
-/* Franja superior de acento */
-.top-accent-bar {
-  height: 10px;
-  background-color: var(--accent-gold);
-  border-top-left-radius: var(--radius-card);
-  border-top-right-radius: var(--radius-card);
-  margin-bottom: -20px;
-  z-index: 2;
+/* ---------- Portada ---------- */
+.cover {
+  background: var(--navy);
+  color: #fff;
+  border-radius: var(--radius);
+  padding: 30px 26px;
+  text-align: center;
 }
 
-/* Header Principal */
-.header-card {
-  background-color: var(--bg-card);
-  border: 1px solid var(--border-light);
-  border-radius: var(--radius-card);
-  padding: 28px 24px 22px;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
-}
-
-.badge-tag {
-  display: inline-block;
-  background-color: var(--accent-gold-light);
-  color: var(--accent-gold-dark);
+.cover-tag {
+  font-family: 'Poppins', sans-serif;
+  color: var(--gold);
   font-size: 0.75rem;
-  font-weight: 800;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  padding: 4px 10px;
-  border-radius: 4px;
-  margin-bottom: 12px;
-  border: 1px solid #FCD34D;
-}
-
-.main-title {
-  font-size: 1.95rem;
-  font-weight: 900;
-  letter-spacing: -0.02em;
-  color: var(--navy-dark);
-  line-height: 1.15;
-  margin-bottom: 4px;
-}
-
-.subtitle {
-  font-size: 1.12rem;
   font-weight: 700;
-  color: var(--accent-gold-dark);
+  letter-spacing: 0.15em;
+}
+
+.cover-title {
+  font-family: 'Poppins', sans-serif;
+  font-size: 2.2rem;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+  margin: 4px 0 2px;
+}
+
+.cover-sub {
+  font-family: 'Poppins', sans-serif;
+  color: var(--gold);
+  font-weight: 500;
   margin-bottom: 14px;
 }
 
-.verse-container {
-  background-color: #F8FAFC;
-  border-left: 4px solid var(--accent-gold);
-  padding: 10px 14px;
-  border-radius: 0 var(--radius-inner) var(--radius-inner) 0;
-  margin-bottom: 18px;
-}
-
-.verse-quote {
-  display: block;
-  font-size: 0.95rem;
+.cover-verse {
   font-style: italic;
-  font-weight: 600;
-  color: var(--navy-dark);
+  font-size: 0.95rem;
+  color: #D7DEEA;
 }
 
-.verse-ref {
-  display: block;
-  font-size: 0.85rem;
-  font-weight: 800;
-  color: var(--accent-gold-dark);
-  margin-top: 3px;
+.cover-verse strong {
+  font-style: normal;
+  color: #fff;
 }
 
-.participant-id-box {
-  background-color: #F1F5F9;
-  border: 1px solid var(--border-light);
-  border-radius: var(--radius-inner);
-  padding: 14px 16px 10px;
-}
-
-.id-meta-row {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-size: 0.78rem;
-  color: var(--text-light);
-  margin-top: 6px;
-}
-
-.autosave-text {
-  font-weight: 600;
-  color: #10B981;
-}
-
-/* ==========================================================================
-   COMPONENTES VISUALES GENERALES
-   ========================================================================== */
-
-.section-card-wrapper {
+/* ---------- Secciones ---------- */
+.section {
   display: flex;
   flex-direction: column;
-  gap: 14px;
+  gap: 16px;
+  margin-top: 14px;
 }
 
-/* Banners oscuros de sección con círculo numerado */
-.section-banner {
-  background-color: var(--navy-dark);
-  color: #FFFFFF;
-  border-radius: var(--radius-card);
-  padding: 16px 20px;
+.banner {
+  background: var(--navy);
+  border-radius: var(--radius);
+  padding: 16px 22px;
   display: flex;
   align-items: center;
-  gap: 16px;
+  gap: 18px;
 }
 
-.banner-number {
-  width: 46px;
-  height: 46px;
-  background-color: var(--accent-gold);
-  color: var(--navy-dark);
-  font-weight: 900;
-  font-size: 1.45rem;
+.banner-num {
+  flex-shrink: 0;
+  width: 48px;
+  height: 48px;
   border-radius: 50%;
+  background: var(--gold);
+  color: var(--navy);
+  font-family: 'Poppins', sans-serif;
+  font-weight: 800;
+  font-size: 1.4rem;
   display: flex;
   align-items: center;
   justify-content: center;
-  flex-shrink: 0;
-}
-
-.banner-titles {
-  display: flex;
-  flex-direction: column;
 }
 
 .banner-title {
+  font-family: 'Poppins', sans-serif;
+  color: #fff;
   font-size: 1.35rem;
-  font-weight: 800;
-  color: #FFFFFF;
+  font-weight: 700;
   line-height: 1.2;
 }
 
-.banner-subtitle {
-  font-size: 0.92rem;
-  font-weight: 600;
-  color: #FCD34D;
+.banner-sub {
+  font-family: 'Poppins', sans-serif;
+  color: var(--gold);
+  font-size: 0.9rem;
   margin-top: 2px;
 }
 
-.section-intro-text {
-  font-size: 0.98rem;
-  font-weight: 500;
-  color: var(--text-main);
-  padding: 2px 6px;
-}
-
-/* Tarjeta celeste (#EFF6FF) */
-.light-blue-card {
-  background-color: var(--blue-card-bg);
-  border-radius: var(--radius-card);
+/* ---------- Tarjetas ---------- */
+.card {
+  border-radius: var(--radius);
   padding: 20px 22px;
 }
 
-.teal-card-title {
-  color: var(--teal-title);
-  font-size: 1.05rem;
-  font-weight: 800;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-  margin-bottom: 14px;
+.card-blue {
+  background: var(--blue);
 }
 
-.card-helper-subtitle {
-  font-size: 0.92rem;
-  font-weight: 600;
-  color: var(--navy-dark);
-  margin-top: -6px;
-  margin-bottom: 14px;
+.card-cream {
+  background: var(--cream);
+  border-left: 6px solid var(--gold);
 }
 
-.group-section-title {
-  color: var(--teal-title);
-  font-size: 1rem;
-  font-weight: 800;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-  margin: 6px 4px 2px;
+.card-navy {
+  background: var(--navy);
+  color: #fff;
 }
 
-/* Campos con subrayado (estilo hoja de trabajo impresa) */
-.underline-field {
-  display: flex;
-  align-items: baseline;
-  gap: 8px;
-  margin-bottom: 14px;
-  flex-wrap: wrap;
+.card-outline {
+  background: #fff;
+  border: 2px solid var(--teal);
 }
 
-.underline-label {
-  font-weight: 700;
-  color: var(--navy-dark);
-  font-size: 0.95rem;
-  white-space: nowrap;
+.card-notes {
+  background: #fff;
+  border: 2px solid var(--teal);
 }
 
-.underline-input {
-  flex: 1;
-  min-width: 180px;
-  border: none;
-  border-bottom: 1.5px solid var(--border-underline);
-  background: transparent;
-  padding: 4px 6px;
-  font-family: inherit;
-  font-size: 0.98rem;
-  color: var(--navy-dark);
-  outline: none;
-}
-
-.underline-input:focus {
-  border-bottom: 2px solid var(--accent-gold-dark);
-}
-
-.underline-input::placeholder {
-  color: #94A3B8;
-  font-size: 0.9rem;
-  font-weight: 400;
-}
-
-/* Radio buttons personalizados */
-.radio-selection-block {
-  margin-top: 6px;
-}
-
-.radio-selection-label {
-  display: block;
-  font-weight: 700;
-  color: var(--navy-dark);
-  font-size: 0.95rem;
-  margin-bottom: 8px;
-}
-
-.radios-group {
-  display: flex;
-  gap: 18px;
-  flex-wrap: wrap;
-}
-
-.custom-radio {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  cursor: pointer;
-  font-size: 0.92rem;
-  font-weight: 600;
-  color: var(--navy-dark);
-  user-select: none;
-}
-
-.custom-radio input[type="radio"] {
-  width: 18px;
-  height: 18px;
-  accent-color: var(--navy-dark);
-  cursor: pointer;
-}
-
-/* Tarjeta azul oscuro: PARA PENSAR */
-.dark-navy-card {
-  background-color: var(--navy-dark);
-  color: #FFFFFF;
-  border-radius: var(--radius-card);
-  padding: 20px 24px;
+.center {
   text-align: center;
 }
 
-.gold-badge {
-  display: inline-block;
-  color: var(--accent-gold);
+.label-teal,
+.label-gold {
+  font-family: 'Poppins', sans-serif;
   font-size: 0.8rem;
-  font-weight: 800;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  margin-bottom: 6px;
-}
-
-.navy-question {
-  font-size: 1.15rem;
   font-weight: 700;
-  line-height: 1.35;
-  color: #FFFFFF;
-}
-
-/* Tarjeta de notas estilo cuaderno con renglones (borde verde azulado #0D9488) */
-.lined-notes-card {
-  background-color: #FFFFFF;
-  border: 2px solid var(--teal-title);
-  border-radius: var(--radius-card);
-  padding: 16px 20px;
-}
-
-.lined-notes-title {
-  color: var(--teal-title);
-  font-size: 0.95rem;
-  font-weight: 800;
-  letter-spacing: 0.05em;
-  margin-bottom: 8px;
-}
-
-.lined-textarea {
-  width: 100%;
-  border: none;
-  outline: none;
-  background-color: transparent;
-  background-attachment: local;
-  background-image: repeating-linear-gradient(transparent,
-      transparent 27px,
-      #E2E8F0 27px,
-      #E2E8F0 28px);
-  line-height: 28px;
-  font-family: inherit;
-  font-size: 0.95rem;
-  color: var(--navy-dark);
-  padding: 0 4px;
-  resize: vertical;
-  min-height: 140px;
-}
-
-.lined-textarea::placeholder {
-  color: #94A3B8;
-  font-size: 0.9rem;
-}
-
-/* ==========================================================================
-   SECCIÓN 2: VERSÍCULOS Y TABLA DE IMPACTO
-   ========================================================================== */
-
-.verses-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 12px;
-}
-
-.verses-stack {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-
-.verse-card {
-  background-color: var(--accent-cream);
-  border-left: 4px solid var(--accent-gold);
-  border-radius: 0 var(--radius-inner) var(--radius-inner) 0;
-  padding: 12px 14px;
-}
-
-.verse-card-title {
-  display: block;
-  font-size: 0.8rem;
-  font-weight: 800;
-  color: var(--accent-gold-dark);
-  text-transform: uppercase;
-  margin-bottom: 4px;
-}
-
-.verse-card-text {
-  font-size: 0.88rem;
-  font-style: italic;
-  font-weight: 500;
-  color: var(--navy-dark);
-  line-height: 1.45;
-}
-
-/* Tablas comparativas */
-.comparison-table-wrapper {
-  overflow-x: auto;
-  border-radius: var(--radius-inner);
-  border: 1px solid var(--border-light);
-  background-color: #FFFFFF;
-}
-
-.comparison-table {
-  width: 100%;
-  border-collapse: collapse;
-  font-size: 0.88rem;
-}
-
-.th-affects {
-  background-color: #E05252;
-  color: #FFFFFF;
-  padding: 10px 14px;
-  text-align: left;
-  font-weight: 800;
-  font-size: 0.82rem;
-  letter-spacing: 0.04em;
-  width: 50%;
-}
-
-.th-benefits {
-  background-color: #10B981;
-  color: #FFFFFF;
-  padding: 10px 14px;
-  text-align: left;
-  font-weight: 800;
-  font-size: 0.82rem;
-  letter-spacing: 0.04em;
-  width: 50%;
-}
-
-.th-excuse {
-  background-color: var(--navy-dark);
-  color: #FFFFFF;
-  padding: 10px 14px;
-  text-align: left;
-  font-weight: 800;
-  font-size: 0.82rem;
-  letter-spacing: 0.04em;
-  width: 38%;
-}
-
-.th-truth {
-  background-color: var(--navy-dark);
-  color: #FFFFFF;
-  padding: 10px 14px;
-  text-align: left;
-  font-weight: 800;
-  font-size: 0.82rem;
-  letter-spacing: 0.04em;
-  width: 62%;
-}
-
-.comparison-table td {
-  padding: 9px 14px;
-  border-bottom: 1px solid #F1F5F9;
-  line-height: 1.4;
-}
-
-.td-affects {
-  background-color: #FFF5F5;
-  color: #991B1B;
-  font-weight: 500;
-  border-right: 1px solid #F1F5F9;
-}
-
-.td-benefits {
-  background-color: #F0FDF4;
-  color: #065F46;
-  font-weight: 500;
-}
-
-.td-excuse {
-  background-color: #FFF5F5;
-  color: var(--navy-dark);
-  font-style: italic;
-  font-weight: 600;
-  border-right: 1px solid #F1F5F9;
-}
-
-.td-truth {
-  background-color: #F0FDF4;
-  color: #065F46;
-  font-weight: 500;
-}
-
-/* Lista de cuentas en sección 2 */
-.accounts-list {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-}
-
-.account-item-row {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  flex-wrap: wrap;
-}
-
-.item-num {
-  font-weight: 800;
-  color: var(--navy-dark);
-  width: 18px;
-}
-
-.account-choice-radios {
-  display: flex;
-  gap: 12px;
-  margin-left: auto;
-}
-
-/* ==========================================================================
-   SECCIÓN 3: TRES PILARES E IDEAS DE CONTENIDO
-   ========================================================================== */
-
-.pillars-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 12px;
-}
-
-.pillar-card {
-  background-color: var(--blue-card-bg);
-  border-radius: var(--radius-inner);
-  padding: 16px 14px;
-}
-
-.pillar-num {
-  color: var(--accent-gold-dark);
-  font-size: 1.5rem;
-  font-weight: 900;
-  line-height: 1;
-  margin-bottom: 4px;
-}
-
-.pillar-title {
-  font-size: 0.95rem;
-  font-weight: 800;
-  color: var(--navy-dark);
-  line-height: 1.25;
-  margin-bottom: 6px;
-}
-
-.pillar-desc {
-  font-size: 0.82rem;
-  color: var(--text-muted);
-  line-height: 1.4;
-}
-
-.ideas-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 10px;
-}
-
-.idea-pill {
-  background-color: #FFFBEB;
-  border: 1px solid #FCD34D;
-  border-radius: var(--radius-inner);
-  padding: 10px 8px;
-  text-align: center;
-  font-size: 0.88rem;
-  font-weight: 700;
-  color: var(--navy-dark);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.single-prompt-card {
-  background-color: #FFFFFF;
-  border: 1.5px solid var(--teal-title);
-  border-radius: var(--radius-card);
-  padding: 16px 20px 8px;
-}
-
-/* ==========================================================================
-   SECCIÓN 4: CARTEL NO. Y EXCUSAS
-   ========================================================================== */
-
-.dark-statement-card {
-  background-color: var(--navy-dark);
-  color: #FFFFFF;
-  border-radius: var(--radius-card);
-  padding: 20px 24px;
-  display: flex;
-  align-items: center;
-  gap: 20px;
-}
-
-.statement-hero-word {
-  color: var(--accent-gold);
-  font-size: 2.8rem;
-  font-weight: 900;
-  line-height: 1;
-  letter-spacing: -0.02em;
-}
-
-.statement-hero-text {
-  font-size: 0.98rem;
-  line-height: 1.5;
-  color: #FFFFFF;
-}
-
-/* ==========================================================================
-   SECCIÓN 5: DESAFÍO DE 5 DÍAS Y COMPROMISO
-   ========================================================================== */
-
-.church-creators-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 12px;
-}
-
-.creator-example-card {
-  padding: 16px 18px;
-}
-
-.challenge-list {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-
-.challenge-item {
-  background-color: var(--accent-cream);
-  border-left: 5px solid var(--accent-gold);
-  border-radius: 0 var(--radius-inner) var(--radius-inner) 0;
-  padding: 12px 16px;
-  display: flex;
-  align-items: flex-start;
-  gap: 12px;
-  cursor: pointer;
-  user-select: none;
-}
-
-.challenge-checkbox {
-  width: 20px;
-  height: 20px;
-  accent-color: var(--accent-gold-dark);
-  cursor: pointer;
-  margin-top: 3px;
-  flex-shrink: 0;
-}
-
-.challenge-content {
-  display: flex;
-  flex-direction: column;
-}
-
-.challenge-header-line {
-  display: flex;
-  align-items: baseline;
-  gap: 8px;
-  margin-bottom: 2px;
-}
-
-.challenge-day-tag {
-  font-size: 0.82rem;
-  font-weight: 900;
-  color: var(--accent-gold-dark);
-  letter-spacing: 0.05em;
-}
-
-.challenge-name {
-  font-size: 0.95rem;
-  font-weight: 800;
-  color: var(--navy-dark);
-}
-
-.challenge-desc {
-  font-size: 0.85rem;
-  color: var(--text-muted);
-  line-height: 1.4;
-}
-
-/* Tarjeta azul oscuro: MI COMPROMISO */
-.commitment-card {
-  background-color: var(--navy-dark);
-  color: #FFFFFF;
-  border-radius: var(--radius-card);
-  padding: 22px 24px;
-}
-
-.commitment-title {
-  color: var(--accent-gold);
-  font-size: 1.05rem;
-  font-weight: 900;
-  letter-spacing: 0.05em;
-  margin-bottom: 6px;
-}
-
-.commitment-subtext {
-  font-size: 0.92rem;
-  color: #E2E8F0;
+  letter-spacing: 0.06em;
   margin-bottom: 12px;
 }
 
-.commitment-textarea {
+.label-teal {
+  color: var(--teal);
+}
+
+.label-gold {
+  color: var(--gold-dark);
+}
+
+.card-navy .label-gold {
+  color: var(--gold);
+  margin-bottom: 6px;
+}
+
+.card-cream p:not(.label-gold) {
+  font-size: 0.98rem;
+}
+
+.card-cream .label-gold {
+  margin-bottom: 6px;
+}
+
+.navy-big {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.2rem;
+  font-weight: 500;
+  line-height: 1.4;
+}
+
+.navy-text {
+  color: #E5E9F0;
+  margin-bottom: 8px;
+}
+
+.hint {
+  color: var(--muted);
+  font-size: 0.92rem;
+  margin: -8px 0 12px;
+}
+
+.field-title {
+  font-weight: 700;
+  margin: 6px 0 10px;
+}
+
+/* ---------- Campos con línea ---------- */
+.line-field {
+  display: flex;
+  align-items: flex-end;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+.line-field:last-child {
+  margin-bottom: 0;
+}
+
+.line-field label {
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.line-field input,
+.line-input {
+  flex: 1;
+  min-width: 0;
+  border: none;
+  border-bottom: 1.5px solid var(--line);
+  background: transparent;
+  font: inherit;
+  color: var(--text);
+  padding: 2px 4px;
+  outline: none;
+  border-radius: 0;
+}
+
+.line-field input:focus,
+.line-input:focus {
+  border-bottom-color: var(--gold-dark);
+}
+
+.line-field.dark label {
+  color: #CBD5E1;
+  font-weight: 400;
+}
+
+.line-field.dark input {
+  color: #fff;
+  border-bottom-color: #64748B;
+}
+
+.meta-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.8rem;
+  color: var(--muted);
+  margin-top: 10px;
+}
+
+#autosave-status {
+  color: var(--teal);
+}
+
+/* ---------- Opciones (cuadritos redondeados) ---------- */
+.options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 26px;
+}
+
+.opt {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  font-size: 0.95rem;
+}
+
+.opt input,
+.day input {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 20px;
+  height: 20px;
+  border: 2px solid var(--navy);
+  border-radius: 5px;
+  background: #fff;
+  cursor: pointer;
+  flex-shrink: 0;
+  display: grid;
+  place-content: center;
+}
+
+.opt input:checked,
+.day input:checked {
+  background: var(--navy);
+}
+
+.opt input:checked::after,
+.day input:checked::after {
+  content: "";
+  width: 5px;
+  height: 10px;
+  border: solid var(--gold);
+  border-width: 0 2.5px 2.5px 0;
+  transform: rotate(45deg) translate(-1px, -1px);
+}
+
+/* ---------- Chips de pasajes ---------- */
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.chip {
+  background: #fff;
+  border: 1px solid #F1D79A;
+  color: var(--navy);
+  font-weight: 700;
+  font-size: 0.9rem;
+  padding: 6px 12px;
+  border-radius: 999px;
+}
+
+/* ---------- Cuentas ---------- */
+.acc-row {
+  display: flex;
+  align-items: flex-end;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+
+.acc-row:last-child {
+  margin-bottom: 0;
+}
+
+.acc-num {
+  font-weight: 900;
+  width: 18px;
+}
+
+.acc-row .line-input {
+  flex: 1;
+}
+
+.acc-row .options {
+  gap: 18px;
+  flex-wrap: nowrap;
+}
+
+/* ---------- Pilares ---------- */
+.pillars {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+
+.pillar {
+  background: #fff;
+  border-radius: 10px;
+  padding: 14px 10px;
+  text-align: center;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  color: var(--navy);
+  font-size: 0.95rem;
+}
+
+.pillar-num {
+  display: block;
+  color: var(--gold-dark);
+  font-size: 1.5rem;
+  font-weight: 800;
+  line-height: 1.1;
+}
+
+/* ---------- Statement NO. ---------- */
+.statement {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+}
+
+.statement-no {
+  font-family: 'Poppins', sans-serif;
+  color: var(--gold);
+  font-size: 2.6rem;
+  font-weight: 800;
+  line-height: 1;
+}
+
+.statement p {
+  font-size: 1.05rem;
+}
+
+/* ---------- Notas con renglones ---------- */
+.lined {
+  width: 100%;
+  border: none;
+  outline: none;
+  resize: vertical;
+  font: inherit;
+  color: var(--text);
+  line-height: 36px;
+  min-height: 216px;
+  padding: 0 2px;
+  background-color: transparent;
+  background-attachment: local;
+  background-image: linear-gradient(to bottom, transparent 35px, #D9DEE5 35px);
+  background-size: 100% 36px;
+  overflow: hidden;
+}
+
+/* ---------- Desafío ---------- */
+.two-cols {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+
+.days {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.day {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  background: var(--cream);
+  border-left: 6px solid var(--gold);
+  border-radius: 10px;
+  padding: 14px 18px;
+  cursor: pointer;
+}
+
+.day-tag {
+  font-family: 'Poppins', sans-serif;
+  color: var(--gold-dark);
+  font-weight: 700;
+  font-size: 0.85rem;
+  width: 48px;
+}
+
+.day-name {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  color: var(--navy);
+}
+
+.navy-input {
   width: 100%;
   background: transparent;
   border: none;
   border-bottom: 1.5px solid #64748B;
-  color: #FFFFFF;
-  font-family: inherit;
-  font-size: 0.98rem;
-  line-height: 1.6;
+  color: #fff;
+  font: inherit;
   outline: none;
   resize: vertical;
-  margin-bottom: 18px;
-  padding: 4px 0;
+  padding: 4px 2px;
+  margin-bottom: 16px;
 }
 
-.commitment-textarea:focus {
-  border-bottom-color: var(--accent-gold);
-}
-
-.commitment-meta-grid {
-  display: flex;
+.sign-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
   gap: 20px;
-  flex-wrap: wrap;
 }
 
-.commitment-meta-field {
-  flex: 1;
-  min-width: 180px;
+/* ---------- Botón ---------- */
+.footer {
   display: flex;
-  align-items: baseline;
-  gap: 8px;
+  justify-content: center;
+  padding-top: 18px;
 }
 
-.commitment-meta-label {
-  color: #94A3B8;
-  font-weight: 700;
-  font-size: 0.9rem;
-}
-
-.commitment-meta-input {
-  flex: 1;
-  background: transparent;
-  border: none;
-  border-bottom: 1.5px solid #64748B;
-  color: #FFFFFF;
-  font-family: inherit;
-  font-size: 0.95rem;
-  outline: none;
-  padding: 2px 4px;
-}
-
-.commitment-meta-input:focus {
-  border-bottom-color: var(--accent-gold);
-}
-
-/* ==========================================================================
-   BOTÓN DE ACCIÓN Y PIE
-   ========================================================================== */
-
-.action-footer {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 16px 0 24px;
-  gap: 10px;
-}
-
-.btn-download {
+.btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 10px;
-  background-color: var(--accent-gold);
-  color: var(--navy-dark);
-  border: 1.5px solid var(--accent-gold-dark);
-  border-radius: var(--radius-card);
-  padding: 16px 32px;
-  font-family: inherit;
-  font-size: 1.05rem;
-  font-weight: 800;
-  cursor: pointer;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   width: 100%;
-  max-width: 440px;
+  max-width: 420px;
+  padding: 17px 24px;
+  border: none;
+  border-radius: var(--radius);
+  background: var(--gold);
+  color: var(--navy);
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.05rem;
+  font-weight: 700;
+  cursor: pointer;
 }
 
-.btn-download:hover {
-  background-color: #FBBF24;
+.btn:hover {
+  background: #F7C35E;
 }
 
-.btn-download:active {
-  background-color: var(--accent-gold-dark);
-  color: #FFFFFF;
-}
-
-.btn-download:disabled {
-  background-color: #E2E8F0;
-  color: #94A3B8;
-  border-color: #CBD5E1;
+.btn:disabled {
+  background: #E5E7EB;
+  color: #9CA3AF;
   cursor: not-allowed;
 }
 
-.btn-icon {
+.btn svg {
   width: 22px;
   height: 22px;
-  flex-shrink: 0;
 }
 
-.footer-note {
-  font-size: 0.8rem;
-  color: var(--text-light);
-  text-align: center;
-}
-
-/* ==========================================================================
-   RESPONSIVIDAD MÓVIL
-   ========================================================================== */
-
-@media (max-width: 680px) {
+/* ---------- Celulares ---------- */
+@media (max-width: 640px) {
   body {
-    padding: 12px 10px 36px;
+    padding: 14px 10px 32px;
   }
 
-  .header-card {
-    padding: 20px 16px;
+  .cover {
+    padding: 24px 18px;
   }
 
-  .main-title {
-    font-size: 1.6rem;
+  .cover-title {
+    font-size: 1.7rem;
   }
 
-  .verses-grid,
-  .pillars-grid,
-  .ideas-grid,
-  .church-creators-grid {
+  .banner {
+    padding: 14px 16px;
+    gap: 14px;
+  }
+
+  .banner-num {
+    width: 40px;
+    height: 40px;
+    font-size: 1.15rem;
+  }
+
+  .banner-title {
+    font-size: 1.12rem;
+  }
+
+  .card {
+    padding: 18px 16px;
+  }
+
+  .line-field {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 4px;
+  }
+
+  .line-field label {
+    white-space: normal;
+  }
+
+  .line-field input {
+    padding: 6px 4px;
+  }
+
+  .acc-row {
+    flex-wrap: wrap;
+  }
+
+  .acc-row .options {
+    width: 100%;
+    padding-left: 30px;
+  }
+
+  .pillars,
+  .two-cols,
+  .sign-row {
     grid-template-columns: 1fr;
   }
 
-  .dark-statement-card {
-    flex-direction: column;
-    text-align: center;
-    gap: 10px;
+  .statement {
+    gap: 16px;
   }
 
-  .account-item-row {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  .account-choice-radios {
-    margin-left: 0;
-    margin-top: 4px;
-  }
-
-  .btn-download {
-    width: 100%;
-    padding: 14px 20px;
-    font-size: 1rem;
+  .statement-no {
+    font-size: 2.1rem;
   }
 }

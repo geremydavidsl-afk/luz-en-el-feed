@@ -4,582 +4,299 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Luz en el Feed - Cuaderno Digital de Trabajo</title>
+  <title>Luz en el Feed - Mis Apuntes</title>
   <meta name="description"
-    content="Cuaderno digital interactivo para el taller 'Luz en el Feed: Redes Sociales e Influencia con Propósito'. Completa tus reflexiones y descarga tu PDF.">
+    content="Cuaderno digital del taller 'Luz en el Feed: Redes Sociales e Influencia con Propósito'.">
 
-  <!-- Tipografía Sans-Serif moderna (Inter) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&family=Lato:wght@400;700;900&display=swap"
     rel="stylesheet">
 
-  <link rel="stylesheet" href="style.css">
+  <!-- ?v=3 obliga al navegador a descargar la versión nueva (evita caché) -->
+  <link rel="stylesheet" href="style.css?v=3">
 
-  <!-- Librería html2pdf.js via CDN -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"
-    integrity="sha512-GsLlZN/3F2ErC5ifS5QtgpiJtWd43JWSuIgh7mbzZ8zBps+dvLusV+eNQATqgA/HdeKFVgA5v3S/cIrLF7QnIg=="
-    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js" crossorigin="anonymous"
+    referrerpolicy="no-referrer"></script>
 </head>
 
 <body>
+  <main class="page">
 
-  <main class="main-container">
-
-    <!-- Franja superior de acento solar -->
-    <div class="top-accent-bar" aria-hidden="true"></div>
-
-    <!-- Encabezado Principal Institucional -->
-    <header class="header-card">
-      <div class="badge-tag">Taller Juvenil Cristiano</div>
-      <h1 class="main-title">LUZ EN EL FEED</h1>
-      <p class="subtitle">Redes Sociales e Influencia con Propósito</p>
-
-      <div class="verse-container">
-        <span class="verse-quote">«Así alumbre vuestra luz delante de los hombres.»</span>
-        <span class="verse-ref">— Mateo 5:16</span>
-      </div>
-
-      <!-- Identificación del participante -->
-      <div class="participant-id-box">
-        <div class="underline-field">
-          <label for="student-name" class="underline-label">Nombre del participante:</label>
-          <input type="text" id="student-name" class="underline-input" placeholder="Escribe tu nombre completo..."
-            autocomplete="name" required>
-        </div>
-        <div class="id-meta-row">
-          <span id="current-date-display" class="date-text"></span>
-          <span id="autosave-status" class="autosave-text">Borrador guardado</span>
-        </div>
-      </div>
+    <!-- ================= PORTADA ================= -->
+    <header class="cover">
+      <p class="cover-tag">TALLER JUVENIL</p>
+      <h1 class="cover-title">LUZ EN EL FEED</h1>
+      <p class="cover-sub">Redes Sociales e Influencia con Propósito</p>
+      <p class="cover-verse">“Así alumbre vuestra luz delante de los hombres.” <strong>— Mateo 5:16</strong></p>
     </header>
 
-    <!-- ========================================================
-         SECCIÓN 1: MI DIAGNÓSTICO DIGITAL
-         ======================================================== -->
-    <section class="section-card-wrapper" id="sec-1">
-      <!-- Tarjeta azul claro: Preguntas de diagnóstico -->
-      <div class="light-blue-card">
-        <h2 class="teal-card-title">MI DIAGNÓSTICO</h2>
+    <div class="card card-blue">
+      <div class="line-field">
+        <label for="student-name">Nombre:</label>
+        <input type="text" id="student-name" autocomplete="name">
+      </div>
+      <div class="meta-row">
+        <span id="current-date-display"></span>
+        <span id="autosave-status">Borrador guardado</span>
+      </div>
+    </div>
 
-        <div class="underline-field">
-          <label for="diag-horas" class="underline-label">Horas al día frente a la pantalla:</label>
-          <input type="text" id="diag-horas" class="underline-input" placeholder="Ej. 4 horas, 6 horas...">
-        </div>
-
-        <div class="underline-field">
-          <label for="diag-despertar" class="underline-label">Lo primero que reviso al despertar:</label>
-          <input type="text" id="diag-despertar" class="underline-input"
-            placeholder="Ej. Instagram, WhatsApp, TikTok...">
-        </div>
-
-        <div class="underline-field">
-          <label for="diag-acostarme" class="underline-label">Lo último que reviso al acostarme:</label>
-          <input type="text" id="diag-acostarme" class="underline-input" placeholder="Ej. Reels, mensajes, videos...">
-        </div>
-
-        <div class="radio-selection-block">
-          <span class="radio-selection-label">Soy más...</span>
-          <div class="radios-group">
-            <label class="custom-radio">
-              <input type="radio" name="diag-soy-mas" value="Consumidor">
-              <span class="radio-box"></span>
-              <span class="radio-text">Consumidor</span>
-            </label>
-            <label class="custom-radio">
-              <input type="radio" name="diag-soy-mas" value="Creador">
-              <span class="radio-box"></span>
-              <span class="radio-text">Creador</span>
-            </label>
-            <label class="custom-radio">
-              <input type="radio" name="diag-soy-mas" value="Un poco de ambos">
-              <span class="radio-box"></span>
-              <span class="radio-text">Un poco de ambos</span>
-            </label>
-          </div>
+    <!-- ================= 1. DIAGNÓSTICO ================= -->
+    <section class="section">
+      <div class="banner">
+        <span class="banner-num">1</span>
+        <div>
+          <h2 class="banner-title">Diagnóstico digital</h2>
+          <p class="banner-sub">¿Soy influenciador o consumidor?</p>
         </div>
       </div>
 
-      <!-- Tarjeta azul marino: PARA PENSAR -->
-      <div class="dark-navy-card">
-        <div class="gold-badge">PARA PENSAR</div>
-        <p class="navy-question">¿Quién está influyendo en quién: yo en las redes o las redes en mí?</p>
+      <div class="card card-cream">
+        <p class="label-gold">IDEA CLAVE</p>
+        <p>La tecnología <strong>amplifica lo que hay en el corazón</strong>.</p>
       </div>
 
-      <!-- Tarjeta blanca con borde verde azulado: MIS NOTAS (Renglones) -->
-      <div class="lined-notes-card">
-        <h3 class="lined-notes-title">MIS NOTAS</h3>
-        <textarea id="notas-1" class="lined-textarea" rows="6"
-          placeholder="Escribe aquí tus reflexiones personales de esta sección..."></textarea>
+      <div class="card card-blue">
+        <p class="label-teal">MI DIAGNÓSTICO</p>
+        <div class="line-field">
+          <label for="diag-horas">Horas al día frente a la pantalla:</label>
+          <input type="text" id="diag-horas">
+        </div>
+        <div class="line-field">
+          <label for="diag-despertar">Lo primero que reviso al despertar:</label>
+          <input type="text" id="diag-despertar">
+        </div>
+        <div class="line-field">
+          <label for="diag-acostarme">Lo último que reviso al acostarme:</label>
+          <input type="text" id="diag-acostarme">
+        </div>
+        <p class="field-title">Soy más...</p>
+        <div class="options">
+          <label class="opt"><input type="radio" name="diag-soy-mas" value="Consumidor"><span>Consumidor</span></label>
+          <label class="opt"><input type="radio" name="diag-soy-mas" value="Creador"><span>Creador</span></label>
+          <label class="opt"><input type="radio" name="diag-soy-mas" value="Un poco de ambos"><span>Un poco de
+              ambos</span></label>
+        </div>
+      </div>
+
+      <div class="card card-navy center">
+        <p class="label-gold">PARA PENSAR</p>
+        <p class="navy-big">¿Quién está influyendo en quién: yo en las redes o las redes en mí?</p>
+      </div>
+
+      <div class="card card-notes">
+        <p class="label-teal">MIS NOTAS</p>
+        <textarea id="notas-1" class="lined" rows="6"></textarea>
       </div>
     </section>
 
-    <!-- ========================================================
-         SECCIÓN 2: LO QUE CONSUMO ME MOLDEA
-         ======================================================== -->
-    <section class="section-card-wrapper" id="sec-2">
-      <!-- Banner oscuro con número 2 -->
-      <div class="section-banner">
-        <div class="banner-number">2</div>
-        <div class="banner-titles">
+    <!-- ================= 2. CONSUMO ================= -->
+    <section class="section">
+      <div class="banner">
+        <span class="banner-num">2</span>
+        <div>
           <h2 class="banner-title">Lo que consumo me moldea</h2>
-          <span class="banner-subtitle">¿En qué me afecta o me beneficia?</span>
+          <p class="banner-sub">¿En qué me afecta o me beneficia?</p>
         </div>
       </div>
 
-      <p class="section-intro-text">
-        Lo que miro una y otra vez moldea lo que pienso, lo que deseo y lo que creo de mí mismo.
-      </p>
-
-      <!-- Cuadrícula de 4 versículos bíblicos -->
-      <div class="verses-grid">
-        <div class="verse-card">
-          <span class="verse-card-title">PROVERBIOS 4:23</span>
-          <p class="verse-card-text">“Sobre toda cosa guardada, guarda tu corazón; porque de él mana la vida.”</p>
-        </div>
-        <div class="verse-card">
-          <span class="verse-card-title">SALMO 101:3</span>
-          <p class="verse-card-text">“No pondré delante de mis ojos cosa injusta.”</p>
-        </div>
-        <div class="verse-card">
-          <span class="verse-card-title">ROMANOS 12:2</span>
-          <p class="verse-card-text">“No os conforméis a este siglo, sino transformaos por medio de la renovación de
-            vuestro entendimiento.”</p>
-        </div>
-        <div class="verse-card">
-          <span class="verse-card-title">FILIPENSES 4:8</span>
-          <p class="verse-card-text">Pablo nos invita a pensar en lo verdadero, lo puro, lo amable y lo digno de
-            alabanza.</p>
+      <div class="card card-cream">
+        <p class="label-gold">PASAJES</p>
+        <div class="chips">
+          <span class="chip">Proverbios 4:23</span>
+          <span class="chip">Salmo 101:3</span>
+          <span class="chip">Romanos 12:2</span>
+          <span class="chip">Filipenses 4:8</span>
         </div>
       </div>
 
-      <!-- Tabla Comparativa: ME AFECTA vs ME BENEFICIA -->
-      <div class="comparison-table-wrapper">
-        <table class="comparison-table">
-          <thead>
-            <tr>
-              <th class="th-affects">ME AFECTA CUANDO...</th>
-              <th class="th-benefits">ME BENEFICIA CUANDO...</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td class="td-affects">Genera comparación, envidia y ansiedad</td>
-              <td class="td-benefits">Inspira gratitud, servicio y esperanza</td>
-            </tr>
-            <tr>
-              <td class="td-affects">Me hace buscar identidad en likes y seguidores</td>
-              <td class="td-benefits">Me recuerda quién soy en Cristo</td>
-            </tr>
-            <tr>
-              <td class="td-affects">Normaliza el pecado, el chisme y la vanidad</td>
-              <td class="td-benefits">Edifica, enseña y fortalece mi fe</td>
-            </tr>
-            <tr>
-              <td class="td-affects">Me roba tiempo de Dios, familia y estudios</td>
-              <td class="td-benefits">Me aporta ideas, creatividad y aprendizaje útil</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-
-      <!-- Tarjeta azul claro: MIS 3 CUENTAS QUE MÁS VEO -->
-      <div class="light-blue-card">
-        <h3 class="teal-card-title">MIS 3 CUENTAS QUE MÁS VEO</h3>
-        <p class="card-helper-subtitle">¿Me acercan o me alejan de Dios?</p>
-
-        <div class="accounts-list">
-          <div class="account-item-row">
-            <span class="item-num">1.</span>
-            <input type="text" id="acc-nombre-1" class="underline-input" placeholder="Nombre de la cuenta o canal...">
-            <div class="account-choice-radios">
-              <label class="custom-radio">
-                <input type="radio" name="acc-eval-1" value="Me acerca">
-                <span class="radio-box"></span>
-                <span class="radio-text">Me acerca</span>
-              </label>
-              <label class="custom-radio">
-                <input type="radio" name="acc-eval-1" value="Me aleja">
-                <span class="radio-box"></span>
-                <span class="radio-text">Me aleja</span>
-              </label>
-            </div>
+      <div class="card card-blue">
+        <p class="label-teal">MIS 3 CUENTAS QUE MÁS VEO</p>
+        <p class="hint">¿Me acercan o me alejan de Dios?</p>
+        <div class="acc-row">
+          <span class="acc-num">1.</span>
+          <input type="text" id="acc-nombre-1" class="line-input">
+          <div class="options">
+            <label class="opt"><input type="radio" name="acc-eval-1" value="Me acerca"><span>Me acerca</span></label>
+            <label class="opt"><input type="radio" name="acc-eval-1" value="Me aleja"><span>Me aleja</span></label>
           </div>
-
-          <div class="account-item-row">
-            <span class="item-num">2.</span>
-            <input type="text" id="acc-nombre-2" class="underline-input" placeholder="Nombre de la cuenta o canal...">
-            <div class="account-choice-radios">
-              <label class="custom-radio">
-                <input type="radio" name="acc-eval-2" value="Me acerca">
-                <span class="radio-box"></span>
-                <span class="radio-text">Me acerca</span>
-              </label>
-              <label class="custom-radio">
-                <input type="radio" name="acc-eval-2" value="Me aleja">
-                <span class="radio-box"></span>
-                <span class="radio-text">Me aleja</span>
-              </label>
-            </div>
+        </div>
+        <div class="acc-row">
+          <span class="acc-num">2.</span>
+          <input type="text" id="acc-nombre-2" class="line-input">
+          <div class="options">
+            <label class="opt"><input type="radio" name="acc-eval-2" value="Me acerca"><span>Me acerca</span></label>
+            <label class="opt"><input type="radio" name="acc-eval-2" value="Me aleja"><span>Me aleja</span></label>
           </div>
-
-          <div class="account-item-row">
-            <span class="item-num">3.</span>
-            <input type="text" id="acc-nombre-3" class="underline-input" placeholder="Nombre de la cuenta o canal...">
-            <div class="account-choice-radios">
-              <label class="custom-radio">
-                <input type="radio" name="acc-eval-3" value="Me acerca">
-                <span class="radio-box"></span>
-                <span class="radio-text">Me acerca</span>
-              </label>
-              <label class="custom-radio">
-                <input type="radio" name="acc-eval-3" value="Me aleja">
-                <span class="radio-box"></span>
-                <span class="radio-text">Me aleja</span>
-              </label>
-            </div>
+        </div>
+        <div class="acc-row">
+          <span class="acc-num">3.</span>
+          <input type="text" id="acc-nombre-3" class="line-input">
+          <div class="options">
+            <label class="opt"><input type="radio" name="acc-eval-3" value="Me acerca"><span>Me acerca</span></label>
+            <label class="opt"><input type="radio" name="acc-eval-3" value="Me aleja"><span>Me aleja</span></label>
           </div>
         </div>
       </div>
 
-      <!-- MIS NOTAS -->
-      <div class="lined-notes-card">
-        <h3 class="lined-notes-title">MIS NOTAS</h3>
-        <textarea id="notas-2" class="lined-textarea" rows="6"
-          placeholder="Escribe aquí tus reflexiones personales de esta sección..."></textarea>
+      <div class="card card-notes">
+        <p class="label-teal">MIS NOTAS</p>
+        <textarea id="notas-2" class="lined" rows="6"></textarea>
       </div>
     </section>
 
-    <!-- ========================================================
-         SECCIÓN 3: DE CONSUMIDOR A CREADOR
-         ======================================================== -->
-    <section class="section-card-wrapper" id="sec-3">
-      <!-- Banner oscuro con número 3 -->
-      <div class="section-banner">
-        <div class="banner-number">3</div>
-        <div class="banner-titles">
+    <!-- ================= 3. CREADOR ================= -->
+    <section class="section">
+      <div class="banner">
+        <span class="banner-num">3</span>
+        <div>
           <h2 class="banner-title">De consumidor a creador</h2>
-          <span class="banner-subtitle">Dios nos llamó a ser luz, no espectadores</span>
+          <p class="banner-sub">Dios nos llamó a ser luz, no espectadores</p>
         </div>
       </div>
 
-      <!-- Versículos bíblicos de la sección -->
-      <div class="verses-stack">
-        <div class="verse-card">
-          <span class="verse-card-title">MATEO 5:14, 16</span>
-          <p class="verse-card-text">“Vosotros sois la luz del mundo... Así alumbre vuestra luz delante de los hombres.”
-          </p>
-        </div>
-        <div class="verse-card">
-          <span class="verse-card-title">1 PEDRO 4:10</span>
-          <p class="verse-card-text">“Cada uno según el don que ha recibido, minístrelo a los otros, como buenos
-            administradores de la multiforme gracia de Dios.”</p>
-        </div>
-        <div class="verse-card">
-          <span class="verse-card-title">EFESIOS 4:29</span>
-          <p class="verse-card-text">“Ninguna palabra corrompida salga de vuestra boca, sino la que sea buena para la
-            edificación, para dar gracia a los oyentes.”</p>
+      <div class="card card-cream">
+        <p class="label-gold">PASAJES</p>
+        <div class="chips">
+          <span class="chip">Mateo 5:14-16</span>
+          <span class="chip">1 Pedro 4:10</span>
+          <span class="chip">Efesios 4:29</span>
         </div>
       </div>
 
-      <!-- TRES PILARES DEL CREADOR CON PROPÓSITO -->
-      <h3 class="group-section-title">TRES PILARES DEL CREADOR CON PROPÓSITO</h3>
-      <div class="pillars-grid">
-        <div class="pillar-card">
-          <div class="pillar-num">1</div>
-          <h4 class="pillar-title">Autenticidad sobre apariencia</h4>
-          <p class="pillar-desc">La luz brilla cuando soy real, no cuando finjo una vida perfecta.</p>
-        </div>
-        <div class="pillar-card">
-          <div class="pillar-num">2</div>
-          <h4 class="pillar-title">Coherencia digital y presencial</h4>
-          <p class="pillar-desc">Lo que soy en comentarios, chats y grupos es igual a lo que soy fuera de la pantalla.
-          </p>
-        </div>
-        <div class="pillar-card">
-          <div class="pillar-num">3</div>
-          <h4 class="pillar-title">Edificación intencional</h4>
-          <p class="pillar-desc">Antes de publicar: ¿esto construye, anima y aporta valor, o promueve división, chisme y
-            vanidad?</p>
+      <div class="card card-blue">
+        <p class="label-teal">TRES PILARES DEL CREADOR</p>
+        <div class="pillars">
+          <div class="pillar"><span class="pillar-num">1</span>Autenticidad</div>
+          <div class="pillar"><span class="pillar-num">2</span>Coherencia</div>
+          <div class="pillar"><span class="pillar-num">3</span>Edificación</div>
         </div>
       </div>
 
-      <!-- IDEAS DE CONTENIDO CON PROPÓSITO -->
-      <h3 class="group-section-title">IDEAS DE CONTENIDO CON PROPÓSITO</h3>
-      <div class="ideas-grid">
-        <div class="idea-pill">Testimonios breves</div>
-        <div class="idea-pill">Citas bíblicas diseñadas</div>
-        <div class="idea-pill">Reflexiones de 30 segundos</div>
-        <div class="idea-pill">Playlists que edifiquen</div>
-        <div class="idea-pill">Mensajes de ánimo</div>
-        <div class="idea-pill">Lo que Dios hizo en mi semana</div>
-      </div>
-
-      <!-- Interactivo: El pilar que más necesito trabajar -->
-      <div class="single-prompt-card">
-        <div class="underline-field">
-          <label for="pilar-trabajar" class="underline-label">El pilar que más necesito trabajar es:</label>
-          <input type="text" id="pilar-trabajar" class="underline-input"
-            placeholder="1. Autenticidad, 2. Coherencia o 3. Edificación...">
+      <div class="card card-outline">
+        <div class="line-field">
+          <label for="pilar-trabajar">El pilar que más necesito trabajar:</label>
+          <input type="text" id="pilar-trabajar">
         </div>
       </div>
 
-      <!-- MIS NOTAS -->
-      <div class="lined-notes-card">
-        <h3 class="lined-notes-title">MIS NOTAS</h3>
-        <textarea id="notas-3" class="lined-textarea" rows="6"
-          placeholder="Escribe aquí tus reflexiones personales de esta sección..."></textarea>
+      <div class="card card-notes">
+        <p class="label-teal">MIS NOTAS</p>
+        <textarea id="notas-3" class="lined" rows="6"></textarea>
       </div>
     </section>
 
-    <!-- ========================================================
-         SECCIÓN 4: EMPIEZA CON LO QUE TIENES
-         ======================================================== -->
-    <section class="section-card-wrapper" id="sec-4">
-      <!-- Banner oscuro con número 4 -->
-      <div class="section-banner">
-        <div class="banner-number">4</div>
-        <div class="banner-titles">
+    <!-- ================= 4. EMPIEZA ================= -->
+    <section class="section">
+      <div class="banner">
+        <span class="banner-num">4</span>
+        <div>
           <h2 class="banner-title">Empieza con lo que tienes</h2>
-          <span class="banner-subtitle">¿Necesito un estudio o grandes equipos?</span>
+          <p class="banner-sub">¿Necesito un estudio o grandes equipos?</p>
         </div>
       </div>
 
-      <!-- Cartel NO. -->
-      <div class="dark-statement-card">
-        <div class="statement-hero-word">NO.</div>
-        <p class="statement-hero-text">
-          No necesito un estudio ni grandes equipos para empezar. Dios usa <strong>lo que ya tengo en la mano</strong>,
-          y empezar pequeño es parte del plan.
-        </p>
+      <div class="card card-navy statement">
+        <span class="statement-no">NO.</span>
+        <p>Dios usa <strong>lo que ya tengo en la mano</strong>.</p>
       </div>
 
-      <!-- Versículos bíblicos de la sección -->
-      <div class="verses-grid">
-        <div class="verse-card">
-          <span class="verse-card-title">ÉXODO 4:2</span>
-          <p class="verse-card-text">Dios le preguntó a Moisés: “¿Qué es eso que tienes en tu mano?” Era una vara de
-            pastor.</p>
-        </div>
-        <div class="verse-card">
-          <span class="verse-card-title">ZACARÍAS 4:10</span>
-          <p class="verse-card-text">“Porque ¿quién menospreció el día de las pequeñeces?”</p>
-        </div>
-        <div class="verse-card">
-          <span class="verse-card-title">JUAN 6:9–13</span>
-          <p class="verse-card-text">Un niño entregó cinco panes y dos peces, y Jesús los multiplicó para miles.</p>
-        </div>
-        <div class="verse-card">
-          <span class="verse-card-title">1 SAMUEL 17:40</span>
-          <p class="verse-card-text">David enfrentó a Goliat con una honda y cinco piedras, no con la armadura del rey.
-          </p>
+      <div class="card card-cream">
+        <p class="label-gold">PASAJES</p>
+        <div class="chips">
+          <span class="chip">Éxodo 4:2</span>
+          <span class="chip">Zacarías 4:10</span>
+          <span class="chip">Juan 6:9-13</span>
+          <span class="chip">1 Samuel 17:40</span>
         </div>
       </div>
 
-      <!-- Tabla Comparativa: MI EXCUSA vs LA VERDAD -->
-      <div class="comparison-table-wrapper">
-        <table class="comparison-table">
-          <thead>
-            <tr>
-              <th class="th-excuse">MI EXCUSA</th>
-              <th class="th-truth">LA VERDAD</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td class="td-excuse">“No tengo buen equipo”</td>
-              <td class="td-truth">Mi celular y mi voz son suficientes para empezar</td>
-            </tr>
-            <tr>
-              <td class="td-excuse">“No tengo seguidores”</td>
-              <td class="td-truth">Una sola persona edificada vale el esfuerzo</td>
-            </tr>
-            <tr>
-              <td class="td-excuse">“No sé editar”</td>
-              <td class="td-truth">Se aprende con tutoriales gratuitos y practicando</td>
-            </tr>
-            <tr>
-              <td class="td-excuse">“Me da pena”</td>
-              <td class="td-truth">Pablo dijo que no se avergonzaba del Evangelio (Romanos 1:16)</td>
-            </tr>
-            <tr>
-              <td class="td-excuse">“No tengo nada que decir”</td>
-              <td class="td-truth">Mi testimonio es único y nadie más lo puede contar</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-
-      <!-- Tarjeta interactiva de excusas y herramientas -->
-      <div class="light-blue-card">
-        <div class="underline-field">
-          <label for="excusa-comun" class="underline-label">Mi excusa más común es:</label>
-          <input type="text" id="excusa-comun" class="underline-input"
-            placeholder="Escribe la excusa que más te frena...">
+      <div class="card card-blue">
+        <div class="line-field">
+          <label for="excusa-comun">Mi excusa más común es:</label>
+          <input type="text" id="excusa-comun">
         </div>
-        <div class="underline-field">
-          <label for="tengo-en-mano" class="underline-label">Lo que ya tengo en mi mano para empezar:</label>
-          <input type="text" id="tengo-en-mano" class="underline-input"
-            placeholder="Mi celular, mi testimonio, mi voz...">
+        <div class="line-field">
+          <label for="tengo-en-mano">Lo que ya tengo en mi mano:</label>
+          <input type="text" id="tengo-en-mano">
         </div>
       </div>
 
-      <!-- MIS NOTAS -->
-      <div class="lined-notes-card">
-        <h3 class="lined-notes-title">MIS NOTAS</h3>
-        <textarea id="notas-4" class="lined-textarea" rows="6"
-          placeholder="Escribe aquí tus reflexiones personales de esta sección..."></textarea>
+      <div class="card card-notes">
+        <p class="label-teal">MIS NOTAS</p>
+        <textarea id="notas-4" class="lined" rows="6"></textarea>
       </div>
     </section>
 
-    <!-- ========================================================
-         SECCIÓN 5: DESAFÍO DE 5 DÍAS
-         ======================================================== -->
-    <section class="section-card-wrapper" id="sec-5">
-      <!-- Banner oscuro con número 5 -->
-      <div class="section-banner">
-        <div class="banner-number">5</div>
-        <div class="banner-titles">
+    <!-- ================= 5. DESAFÍO ================= -->
+    <section class="section">
+      <div class="banner">
+        <span class="banner-num">5</span>
+        <div>
           <h2 class="banner-title">Desafío de 5 días</h2>
-          <span class="banner-subtitle">De la teoría a la práctica</span>
+          <p class="banner-sub">De la teoría a la práctica</p>
         </div>
       </div>
 
-      <p class="section-intro-text">
-        Lo aprendido solo cambia vidas si se aplica. <strong>Marca cada reto al cumplirlo.</strong>
-      </p>
-
-      <!-- EJEMPLOS DE LA IGLESIA -->
-      <h3 class="group-section-title">EJEMPLOS DE LA IGLESIA</h3>
-      <div class="church-creators-grid">
-        <div class="light-blue-card creator-example-card">
-          <span class="teal-card-title">CREADOR 1</span>
-          <div class="underline-field">
-            <label for="creador-1-nombre" class="underline-label">Nombre:</label>
-            <input type="text" id="creador-1-nombre" class="underline-input">
+      <div class="two-cols">
+        <div class="card card-blue">
+          <p class="label-teal">CREADOR 1</p>
+          <div class="line-field"><label for="creador-1-nombre">Nombre:</label><input type="text" id="creador-1-nombre">
           </div>
-          <div class="underline-field">
-            <label for="creador-1-aprendi" class="underline-label">Lo que aprendí:</label>
-            <input type="text" id="creador-1-aprendi" class="underline-input">
-          </div>
+          <div class="line-field"><label for="creador-1-aprendi">Lo que aprendí:</label><input type="text"
+              id="creador-1-aprendi"></div>
         </div>
-
-        <div class="light-blue-card creator-example-card">
-          <span class="teal-card-title">CREADOR 2</span>
-          <div class="underline-field">
-            <label for="creador-2-nombre" class="underline-label">Nombre:</label>
-            <input type="text" id="creador-2-nombre" class="underline-input">
+        <div class="card card-blue">
+          <p class="label-teal">CREADOR 2</p>
+          <div class="line-field"><label for="creador-2-nombre">Nombre:</label><input type="text" id="creador-2-nombre">
           </div>
-          <div class="underline-field">
-            <label for="creador-2-aprendi" class="underline-label">Lo que aprendí:</label>
-            <input type="text" id="creador-2-aprendi" class="underline-input">
-          </div>
+          <div class="line-field"><label for="creador-2-aprendi">Lo que aprendí:</label><input type="text"
+              id="creador-2-aprendi"></div>
         </div>
       </div>
 
-      <!-- MI DESAFÍO (Lista de 5 días con checkbox) -->
-      <h3 class="group-section-title">MI DESAFÍO</h3>
-      <div class="challenge-list">
-
-        <label class="challenge-item">
-          <input type="checkbox" id="check-dia-1" class="challenge-checkbox">
-          <div class="challenge-content">
-            <div class="challenge-header-line">
-              <span class="challenge-day-tag">DÍA 1</span>
-              <strong class="challenge-name">Limpieza de feed</strong>
-            </div>
-            <p class="challenge-desc">Dejo de seguir 3 cuentas que me roben la paz o me lleven a la comparación o la
-              tentación, y sigo 3 que edifiquen.</p>
-          </div>
-        </label>
-
-        <label class="challenge-item">
-          <input type="checkbox" id="check-dia-2" class="challenge-checkbox">
-          <div class="challenge-content">
-            <div class="challenge-header-line">
-              <span class="challenge-day-tag">DÍA 2</span>
-              <strong class="challenge-name">Oración e intercesión</strong>
-            </div>
-            <p class="challenge-desc">Oro por alguien que veo pasando un mal momento y le envío un mensaje de ánimo.</p>
-          </div>
-        </label>
-
-        <label class="challenge-item">
-          <input type="checkbox" id="check-dia-3" class="challenge-checkbox">
-          <div class="challenge-content">
-            <div class="challenge-header-line">
-              <span class="challenge-day-tag">DÍA 3</span>
-              <strong class="challenge-name">Mi primera creación</strong>
-            </div>
-            <p class="challenge-desc">Elijo una idea (testimonio, versículo o reflexión) y la preparo con mi celular.
-            </p>
-          </div>
-        </label>
-
-        <label class="challenge-item">
-          <input type="checkbox" id="check-dia-4" class="challenge-checkbox">
-          <div class="challenge-content">
-            <div class="challenge-header-line">
-              <span class="challenge-day-tag">DÍA 4</span>
-              <strong class="challenge-name">Publicación de luz</strong>
-            </div>
-            <p class="challenge-desc">Publico mi contenido en una historia o publicación, buscando autenticidad y no
-              perfección.</p>
-          </div>
-        </label>
-
-        <label class="challenge-item">
-          <input type="checkbox" id="check-dia-5" class="challenge-checkbox">
-          <div class="challenge-content">
-            <div class="challenge-header-line">
-              <span class="challenge-day-tag">DÍA 5</span>
-              <strong class="challenge-name">Mensaje de ánimo</strong>
-            </div>
-            <p class="challenge-desc">Envío un mensaje directo a alguien que no sea mi amigo cercano para decirle que
-              Dios lo ama.</p>
-          </div>
-        </label>
-
+      <div class="days">
+        <label class="day"><input type="checkbox" id="check-dia-1"><span class="day-tag">DÍA 1</span><span
+            class="day-name">Limpieza de feed</span></label>
+        <label class="day"><input type="checkbox" id="check-dia-2"><span class="day-tag">DÍA 2</span><span
+            class="day-name">Oración e intercesión</span></label>
+        <label class="day"><input type="checkbox" id="check-dia-3"><span class="day-tag">DÍA 3</span><span
+            class="day-name">Mi primera creación</span></label>
+        <label class="day"><input type="checkbox" id="check-dia-4"><span class="day-tag">DÍA 4</span><span
+            class="day-name">Publicación de luz</span></label>
+        <label class="day"><input type="checkbox" id="check-dia-5"><span class="day-tag">DÍA 5</span><span
+            class="day-name">Mensaje de ánimo</span></label>
       </div>
 
-      <!-- Tarjeta Azul Marino: MI COMPROMISO -->
-      <div class="commitment-card">
-        <h3 class="commitment-title">MI COMPROMISO</h3>
-        <p class="commitment-subtext">Con la ayuda de Dios, durante estos 5 días voy a:</p>
-        <textarea id="compromiso-texto" class="commitment-textarea" rows="3"
-          placeholder="Escribe tu compromiso personal delante de Dios..."></textarea>
-
-        <div class="commitment-meta-grid">
-          <div class="commitment-meta-field">
-            <label for="compromiso-firma" class="commitment-meta-label">Firma:</label>
-            <input type="text" id="compromiso-firma" class="commitment-meta-input" placeholder="Tu firma o nombre">
-          </div>
-          <div class="commitment-meta-field">
-            <label for="compromiso-fecha" class="commitment-meta-label">Fecha:</label>
-            <input type="text" id="compromiso-fecha" class="commitment-meta-input">
-          </div>
+      <div class="card card-navy">
+        <p class="label-gold">MI COMPROMISO</p>
+        <p class="navy-text">Con la ayuda de Dios, durante estos 5 días voy a:</p>
+        <textarea id="compromiso-texto" class="navy-input" rows="2"></textarea>
+        <div class="sign-row">
+          <div class="line-field dark"><label for="compromiso-firma">Firma:</label><input type="text"
+              id="compromiso-firma"></div>
+          <div class="line-field dark"><label for="compromiso-fecha">Fecha:</label><input type="text"
+              id="compromiso-fecha"></div>
         </div>
       </div>
     </section>
 
-    <!-- Botón de Acción Principal -->
-    <footer class="action-footer">
-      <button type="button" id="btn-download-pdf" class="btn-download" aria-label="Descargar mis apuntes en PDF">
-        <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-          stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-          <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
-          <polyline points="7 10 12 15 17 10"></polyline>
-          <line x1="12" y1="15" x2="12" y2="3"></line>
+    <footer class="footer">
+      <button type="button" id="btn-download-pdf" class="btn">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"
+          stroke-linejoin="round" aria-hidden="true">
+          <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+          <polyline points="7 10 12 15 17 10" />
+          <line x1="12" y1="15" x2="12" y2="3" />
         </svg>
         <span id="btn-download-text">Descargar mis apuntes en PDF</span>
       </button>
-      <p class="footer-note">El documento PDF incluirá todas tus respuestas, versículos, evaluaciones y compromiso
-        firmado.</p>
     </footer>
 
   </main>
-
-  <script src="app.js"></script>
+  <script src="app.js?v=3"></script>
 </body>
 
 </html>
