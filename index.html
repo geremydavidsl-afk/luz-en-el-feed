@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Luz en el Feed - Bloc de Notas Digital</title>
+    <meta name="description"
+        content="Bloc de notas digital para el taller juvenil 'Luz en el Feed: Redes Sociales e Influencia con Propósito'. Descarga tus apuntes en PDF.">
+
+    <!-- Tipografía Sans-Serif moderna y limpia (Inter) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Librería html2pdf.js via CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"
+        integrity="sha512-GsLlZN/3F2ErC5ifS5QtgpiJtWd43JWSuIgh7mbzZ8zBps+dvLusV+eNQATqgA/HdeKFVgA5v3S/cIrLF7QnIg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</head>
+
+<body>
+
+    <!-- Contenedor principal estilo Google Forms / Hoja digital -->
+    <main class="main-container" id="notepad-container">
+
+        <!-- Franja de acento superior estilo formulario -->
+        <div class="top-accent-bar" aria-hidden="true"></div>
+
+        <!-- 1. Encabezado principal -->
+        <header class="header-card">
+            <div class="badge-tag">Taller Juvenil</div>
+            <h1 class="main-title">LUZ EN EL FEED</h1>
+            <p class="subtitle">Redes Sociales e Influencia con Propósito</p>
+
+            <div class="verse-container">
+                <span class="verse-quote">«Así alumbre vuestra luz delante de los hombres.»</span>
+                <span class="verse-ref">— Mateo 5:16</span>
+            </div>
+
+            <p class="header-instructions">
+                Escribe aquí tus reflexiones personales durante el taller. Al terminar, podrás descargar un archivo PDF
+                limpio con todos tus apuntes.
+            </p>
+        </header>
+
+        <!-- 2. Campo de Identificación -->
+        <section class="section-card identification-card">
+            <label for="student-name" class="section-label">
+                <span class="label-accent">●</span> Nombre:
+            </label>
+            <input type="text" id="student-name" name="studentName" class="input-field"
+                placeholder="Escribe tu nombre y apellido..." autocomplete="name" required>
+            <div class="id-meta-row">
+                <span id="current-date-display" class="date-text"></span>
+                <span id="autosave-status" class="autosave-text">Borrador guardado</span>
+            </div>
+        </section>
+
+        <!-- 3. Áreas de Apuntes (Textareas en blanco) -->
+
+        <!-- Sección 1: Mi Diagnóstico Digital -->
+        <section class="section-card note-card" data-section-id="diagnostico">
+            <div class="section-header">
+                <div class="section-num">1</div>
+                <div class="section-titles">
+                    <h2 class="section-title">Mi Diagnóstico Digital</h2>
+                    <span class="section-subtitle">(¿Soy influenciador o consumidor?)</span>
+                </div>
+            </div>
+            <p class="section-guidance">Reflexiona sobre tu uso actual de redes: tiempo invertido, qué motiva tus
+                publicaciones y si tu consumo te edifica.</p>
+            <div class="textarea-wrapper">
+                <textarea id="note-diagnostico" class="note-textarea" rows="5"
+                    placeholder="Escribe aquí tu diagnóstico personal..."></textarea>
+            </div>
+        </section>
+
+        <!-- Sección 2: Lo que consumo me moldea -->
+        <section class="section-card note-card" data-section-id="consumo">
+            <div class="section-header">
+                <div class="section-num">2</div>
+                <div class="section-titles">
+                    <h2 class="section-title">Lo que consumo me moldea</h2>
+                    <span class="section-subtitle">(Lo que entra por mis ojos y oídos define mi corazón)</span>
+                </div>
+            </div>
+            <p class="section-guidance">Identifica qué tipo de contenido llena tu feed y qué cambios necesitas hacer en
+                las cuentas que sigues.</p>
+            <div class="textarea-wrapper">
+                <textarea id="note-consumo" class="note-textarea" rows="5"
+                    placeholder="Escribe aquí tus reflexiones sobre lo que consumes..."></textarea>
+            </div>
+        </section>
+
+        <!-- Sección 3: De consumidor a creador -->
+        <section class="section-card note-card" data-section-id="creador">
+            <div class="section-header">
+                <div class="section-num">3</div>
+                <div class="section-titles">
+                    <h2 class="section-title">De consumidor a creador</h2>
+                    <span class="section-subtitle">(Usa tus redes para impactar vidas con propósito)</span>
+                </div>
+            </div>
+            <p class="section-guidance">¿Cómo puedes usar tus perfiles, historias y publicaciones para reflejar a Cristo
+                y edificar a otros?</p>
+            <div class="textarea-wrapper">
+                <textarea id="note-creador" class="note-textarea" rows="5"
+                    placeholder="Escribe tus metas y acciones prácticas como creador de luz..."></textarea>
+            </div>
+        </section>
+
+        <!-- Sección 4: Mis Notas y Reflexiones -->
+        <section class="section-card note-card" data-section-id="reflexiones">
+            <div class="section-header">
+                <div class="section-num">4</div>
+                <div class="section-titles">
+                    <h2 class="section-title">Mis Notas y Reflexiones</h2>
+                    <span class="section-subtitle">(Apuntes libres, versículos clave y compromisos)</span>
+                </div>
+            </div>
+            <p class="section-guidance">Anota puntos clave del expositor, ideas que resonaron en ti o una oración final
+                del taller.</p>
+            <div class="textarea-wrapper">
+                <textarea id="note-reflexiones" class="note-textarea" rows="6"
+                    placeholder="Escribe tus notas adicionales y compromisos..."></textarea>
+            </div>
+        </section>
+
+        <!-- 4. Botón de Acción -->
+        <footer class="action-footer">
+            <button type="button" id="btn-download-pdf" class="btn-download" aria-label="Descargar mis apuntes en PDF">
+                <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                    <polyline points="7 10 12 15 17 10"></polyline>
+                    <line x1="12" y1="15" x2="12" y2="3"></line>
+                </svg>
+                <span id="btn-download-text">Descargar mis apuntes en PDF</span>
+            </button>
+            <p class="footer-note">El documento se descargará en formato PDF listo para guardar o imprimir.</p>
+        </footer>
+
+    </main>
+
+    <!-- Elemento oculto optimizado exclusivamente para renderizar el PDF limpio y sin fallas -->
+    <div id="pdf-export-template" class="pdf-export-container" style="display: none;" aria-hidden="true">
+        <!-- Se llena dinámicamente con JavaScript para garantizar calidad de impresión perfecta -->
+    </div>
+
+    <script src="app.js"></script>
+</body>
+
+</html>
